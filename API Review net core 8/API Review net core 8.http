@@ -1,0 +1,6 @@
+@API_Review_net_core_8_HostAddress = http://localhost:5022
+
+GET {{API_Review_net_core_8_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
