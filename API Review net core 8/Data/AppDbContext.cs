@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using API_Review_net_core_8.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace API_Review_net_core_8.Data
 {
@@ -6,7 +7,9 @@ namespace API_Review_net_core_8.Data
     {
         public AppDbContext(DbContextOptions<AppDbContext> options):base(options)
         {
-            
+             
         }
+        public DbSet<Category> Categories { get; set; }
+
     }
 }
