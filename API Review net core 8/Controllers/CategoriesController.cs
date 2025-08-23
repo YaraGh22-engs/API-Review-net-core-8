@@ -43,5 +43,15 @@ namespace API_Review_net_core_8.Controllers
             _db.SaveChanges();
             return Ok(cat);
         }
+        [HttpDelete("id")]
+        public async Task<IActionResult> RemoveCategory( int id)
+        {
+            var c = await _db.Categories.SingleOrDefaultAsync(x => x.Id == id);
+            if (c is null) return NotFound();
+            _db.Categories.Remove(c);
+            _db.SaveChanges();
+            return Ok(c);
+
+        }
     }
 }
