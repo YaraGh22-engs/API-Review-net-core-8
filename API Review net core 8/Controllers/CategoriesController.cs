@@ -33,5 +33,15 @@ namespace API_Review_net_core_8.Controllers
             _db.SaveChanges();
             return Ok(c);
         }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateCategory([FromBody]Category category)
+        {
+            var cat = await _db.Categories.SingleOrDefaultAsync(d=>d.Id ==category.Id);
+            if (cat is null) return NotFound();
+            cat.Name = category.Name;
+            _db.SaveChanges();
+            return Ok(cat);
+        }
     }
 }
